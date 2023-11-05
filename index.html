@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Formulario</title>
+</head>
+
+
+<body>
+    <form id="meuFormulario">
+        <label for="campoA">Campo A:</label>
+        <input type="number" id="campoA" required>
+        <br>
+        <label for="campoB">Campo B:</label>
+        <input type="number" id="campoB" required>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+    
+    <p id="mensagem"></p>
+
+    <script>
+        // Função para lidar com o envio do formulário
+        document.getElementById('meuFormulario').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Obtém os valores dos campos A e B
+            var campoA = parseFloat(document.getElementById('campoA').value);
+            var campoB = parseFloat(document.getElementById('campoB').value);
+
+            // Verifica se Campo B é maior que Campo A
+            if (campoB > campoA) {
+                document.getElementById('mensagem').textContent = 'Formulário válido! Campo B é maior que Campo A.';
+            } else {
+                document.getElementById('mensagem').textContent = 'Formulário inválido! Campo B deve ser maior que Campo A.';
+            }
+        });
+    </script>
+</body>
+</html>
+
